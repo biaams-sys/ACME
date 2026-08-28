@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telemetria de Acessos - IoT ESP32</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Controle de Acesso - Portão Principal</h1>
+      <p>Telemetria via ESP32 | Maio 2026</p>
+    </header>
+
+    <main>
+      <section class="chart-card">
+        <div class="chart-header">
+          <h2>Atividade Diária</h2>
+          <span class="badge">Visão Detalhada</span>
+        </div>
+        <div class="chart-container">
+          <canvas id="dailyChart"></canvas>
+        </div>
+      </section>
+
+      <section class="chart-card">
+        <div class="chart-header">
+          <h2>Consolidado Semanal</h2>
+          <span class="badge">Acumulado</span>
+        </div>
+        <div class="chart-container">
+          <canvas id="weeklyChart"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
