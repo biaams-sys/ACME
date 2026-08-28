@@ -1,10 +1,13 @@
 async function initDashboard() {
   try {
+
     const response = await fetch('dados.json');
     const data = await response.json();
 
     renderDailyChart(data.diario);
     renderWeeklyChart(data.semanal);
+
+    renderTableFromCSV();
   } catch (error) {
     console.error('Erro ao carregar os dados:', error);
   }
@@ -87,6 +90,42 @@ function renderWeeklyChart(weeklyData) {
       }
     }
   });
+}
+
+async function renderTableFromCSV() {
+  try {
+    const response = await fetch('dados.csv');
+    const text = await response.text();
+    
+    const lines = text.trim().split('\n');
+    const tbody = document.getElementById('dataTableBody');
+    if (!tbody) return;
+
+    tbody.innerHTML = '';
+
+    const startIndex = lines[0].toLowerCase().includes('data') ? 1 : 0;
+
+    for (let i = startIndex; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+
+      const cols = line.includes(';') ? line.split(';') : line.split(',');
+      
+      const data = cols[0] ? cols[0].trim() : '';
+      const hora = cols[1] ? cols[1].trim() : '';
+      const semana = cols[2] ? cols[2].trim() : '';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${data}</td>
+        <td>${hora}</td>
+        <td>${semana}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+  } catch (error) {
+    console.error('Erro ao ler dados.csv para a tabela:', error);
+  }
 }
 
 initDashboard();
