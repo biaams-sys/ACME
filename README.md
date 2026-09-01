@@ -151,7 +151,7 @@ O Arduino controla a sequência de funcionamento dos semáforos utilizando difer
 ### Circuito
 
 <p align="center">
-  <img src="semaforo.png" width="600">
+  <img src="/fotos/semaforo.png" width="600">
 </p>
 
 ###  Código
