@@ -47,21 +47,12 @@ Dashboard Web/
 
 ##  Telas
 
-### Gráfico diário
 <p align="center">
-  <img src="/fotos/siteacme.pdf" width="700">
+  <img src="/fotos/1.png" width="700">
 </p>
 
-### Gráfico semanal
-
 <p align="center">
-  <img src="Telas/2.png" width="700">
-</p>
-
-### Tabela
-
-<p align="center">
-  <img src="Telas/3.png" width="700">
+  <img src="/fotos/2.png" width="700">
 </p>
 
 ---
