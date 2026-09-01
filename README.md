@@ -49,7 +49,7 @@ Dashboard Web/
 
 ### Gráfico diário
 <p align="center">
-  <img src="Telas/1.png" width="700">
+  <img src="/fotos/siteacme.pdf" width="700">
 </p>
 
 ### Gráfico semanal
