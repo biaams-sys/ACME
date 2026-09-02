@@ -299,34 +299,30 @@ Também foi utilizado um capacitor no circuito.
 
 ---
 
-### 🔌 Circuito
+###  Circuito
 
 <p align="center">
-  <img src="Prints/4.png" width="600">
+  <img src="fotos/vent.png" width="600">
 </p>
 
-### 💻 Código
+###  Código
 
 ```cpp
 #include <Servo.h>
 
 Servo meuServo;
 
-int potenc = 0;
-int angulo = 0;
+const int PINO_POTENCIOMETRO = A0;
+const int PINO_SERVO = 11;
 
 void setup() {
-  meuServo.attach(9);
+  meuServo.attach(PINO_SERVO);
 }
 
 void loop() {
-
-  potenc = analogRead(A0);
-
-  angulo = map(potenc, 0, 1023, 0, 180);
-
+  int angulo = map(analogRead(PINO_POTENCIOMETRO), 0, 1023, 0, 180);
+  
   meuServo.write(angulo);
-
   delay(15);
 }
 ```
