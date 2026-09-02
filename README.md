@@ -256,40 +256,32 @@ Os LEDs acendem em sequência, criando um efeito de iluminação semelhante às 
 ### 🔌 Circuito
 
 <p align="center">
-  <img src="Prints/3.png" width="600">
+  <img src="/fotos/posto.png" width="600">
 </p>
 
 ### 💻 Código
 
 ```cpp
-int leds[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+const byte LDR_PIN = A0;
+const byte LEDS[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+const int NUM_LEDS = 10;
 
 void setup() {
-
-  for (int i = 0; i < 10; i++) {
-    pinMode(leds[i], OUTPUT);
+  for (int i = 0; i < NUM_LEDS; i++) {
+    pinMode(LEDS[i], OUTPUT);
   }
-
 }
 
 void loop() {
+  int luz = analogRead(LDR_PIN);
+ 
+  int quantidade = constrain(map(luz, 0, 1023, NUM_LEDS, 0), 0, NUM_LEDS);
 
-  for (int i = 0; i < 10; i++) {
-
-    digitalWrite(leds[i], HIGH);
-    delay(150);
-    digitalWrite(leds[i], LOW);
-
+  for (int i = 0; i < NUM_LEDS; i++) {
+    digitalWrite(LEDS[i], (i < quantidade) ? HIGH : LOW);
   }
 
-  for (int i = 8; i > 0; i--) {
-
-    digitalWrite(leds[i], HIGH);
-    delay(150);
-    digitalWrite(leds[i], LOW);
-
-  }
-
+  delay(50);
 }
 ```
 
